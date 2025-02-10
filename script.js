@@ -22,11 +22,10 @@ let songs = [
 ];
 
 
-// songItem.forEach((element)=>{
-//     console.log(element,i);
-//     element.getElementsByTagName("img")[0].src=songs[i].coverPath;
-//     element.getElementsByClassName("songName")[0].innerText=songs[i].songName;
-
+songItem.forEach((element)=>{
+    console.log(element,i);
+    element.getElementsByTagName("img")[0].src=songs[i].coverPath;
+    element.getElementsByClassName("songName")[0].innerText=songs[i].songName;
 })
 
 // Handle play/pause

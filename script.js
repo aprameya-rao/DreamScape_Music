@@ -2,15 +2,15 @@ console.log("Welcome to Spotify");
 
 // Initialize Variables
 let songIndex = 0;
-let audioElement = new Audio('songs/1.mp3'); // Make sure path is correct
+let audioElement = new Audio('songs/1.mp3'); 
 let masterPlay = document.getElementById('masterPlay');
 let myProgressBar = document.getElementById('myProgressBar');
 
 let songs = [
-    {songName: "Salam-e-Ishq", filePath: "songs/1.mp3", coverPath: "cover/1.jpg"},
-    {songName: "Salam-e-Ishq", filePath: "songs/1.mp3", coverPath: "cover/1.jpg"},
-    {songName: "Salam-e-Ishq", filePath: "songs/1.mp3", coverPath: "cover/1.jpg"},
-    {songName: "Salam-e-Ishq", filePath: "songs/1.mp3", coverPath: "cover/1.jpg"}
+    {songName: "Song 1", filePath: "songs/1.mp3", coverPath: "cover/1.jpg"},
+    {songName: "Song 2", filePath: "songs/2.mp3", coverPath: "cover/2.jpg"},
+    {songName: "Song 3", filePath: "songs/3.mp3", coverPath: "cover/3.jpg"},
+    {songName: "Song 4", filePath: "songs/4.mp3", coverPath: "cover/4.jpg"}
 ];
 
 // Handle play/pause

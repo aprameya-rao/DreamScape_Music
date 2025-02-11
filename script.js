@@ -10,16 +10,14 @@ let masterSongName = document.getElementById('masterSongName');
 let songItem=Array.from(document.getElementsByClassName('songItem'));
 
 let songs = [
-    {songName: "Song 1", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
-    {songName: "Song 2", filePath: "songs/2.mp3", coverPath: "covers/2.jpg"},
-    {songName: "Song 3", filePath: "songs/3.mp3", coverPath: "covers/3.jpg"},
-    {songName: "Song 4", filePath: "songs/4.mp3", coverPath: "covers/4.jpg"},
-    {songName: "Song 5", filePath: "songs/5.mp3", coverPath: "covers/5.jpg"},
-    {songName: "Song 6", filePath: "songs/6.mp3", coverPath: "covers/6.jpg"},
-    {songName: "Song 7", filePath: "songs/7.mp3", coverPath: "covers/7.jpg"},
-    {songName: "Song 8", filePath: "songs/8.mp3", coverPath: "covers/8.jpg"},
-    {songName: "Song 9", filePath: "songs/9.mp3", coverPath: "covers/9.jpg"},
-    {songName: "Song 10", filePath: "songs/10.mp3", coverPath: "covers/10.jpg"}
+    {songName: "Celestial Dreams", filePath: "songs/1.mp3", coverPath: "covers/1.jpeg"},
+    {songName: "Atomic Vibes", filePath: "songs/2.mp3", coverPath: "covers/2.jpeg"},
+    {songName: "Rising Memories", filePath: "songs/3.mp3", coverPath: "covers/3.jpeg"},
+    {songName: "Bamboozeled", filePath: "songs/4.mp3", coverPath: "covers/4.jpeg"},
+    {songName: "Evolve", filePath: "songs/5.mp3", coverPath: "covers/5.jpeg"},
+    {songName: "Riser", filePath: "songs/6.mp3", coverPath: "covers/6.jpeg"},
+    {songName: "Rollercoaster", filePath: "songs/7.mp3", coverPath: "covers/7.jpeg"},
+    {songName: "Spacewalkers", filePath: "songs/8.mp3", coverPath: "covers/8.jpeg"}
 ];
 
 
@@ -103,7 +101,7 @@ document.getElementById('previous').addEventListener('click', ()=>{
 
 
 document.getElementById('next').addEventListener('click', ()=>{
-    if(songIndex>=9){
+    if(songIndex>=7){
         songIndex = 0
     }
     else{

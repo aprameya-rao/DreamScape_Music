@@ -43,7 +43,7 @@ nav ul li {
 }
 
 .container{
-    min-height: 72vh;
+    min-height: 78vh;
     background-color: black;
     color: white;
     font-family: 'varela round',sans-serif;
@@ -78,6 +78,7 @@ nav ul li {
     width: 80vw;
     text-align: center;
     cursor: pointer;
+    margin: 10px 0;
 }
 
 .songItemContainer{

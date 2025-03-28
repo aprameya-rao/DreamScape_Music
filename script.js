@@ -2,6 +2,7 @@ console.log("Welcome to Spotify");
 
 // Initialize Variables
 let songIndex = 0;
+let progress=0;
 let audioElement = new Audio('songs/1.mp3'); 
 let masterPlay = document.getElementById('masterPlay');
 let myProgressBar = document.getElementById('myProgressBar');
@@ -51,6 +52,8 @@ audioElement.addEventListener('timeupdate', () => {
     // Update Seekbar (to be implemented)
     progress=(audioElement.currentTime/audioElement.duration)*100;
     myProgressBar.value=progress;
+    console.log(progress);
+    // console.log(audioElement.currentTime);
 
 });
 
@@ -116,3 +119,24 @@ document.getElementById('next').addEventListener('click', ()=>{
     masterPlay.classList.add('fa-pause-circle');
 
 })
+
+//handles looping 
+audioElement.addEventListener('ended', () => 
+    {
+    if(songIndex==7)
+    {
+        songIndex=0;
+    }
+    else 
+    {
+        songIndex++;
+    }
+    audioElement.src = `songs/${songIndex+1}.mp3`;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    gif.style.opacity = 1;
+    masterPlay.classList.remove('fa-regular fa-2x fa-circle-play');
+    masterPlay.classList.add('fa-pause-circle');
+
+    });

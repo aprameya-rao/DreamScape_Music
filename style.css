@@ -24,9 +24,13 @@ nav ul{
     color: white;
 }
 
-nav ul li {
+.left-button{
     padding: 0 12px;
 
+}
+
+.rigth-button{
+    margin-left: 150px;
 }
 
 .brand img{

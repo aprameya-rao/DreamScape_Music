@@ -80,6 +80,12 @@ nav ul{
     cursor: pointer;
 }
 
+#loop{
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
 #myProgressBar{
     width: 80vw;
     text-align: center;

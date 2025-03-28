@@ -3,12 +3,14 @@ console.log("Welcome to Spotify");
 // Initialize Variables
 let songIndex = 0;
 let progress=0;
+let loopPlaylist=0;
 let audioElement = new Audio('songs/1.mp3'); 
 let masterPlay = document.getElementById('masterPlay');
 let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
 let masterSongName = document.getElementById('masterSongName');
 let songItem=Array.from(document.getElementsByClassName('songItem'));
+let loopList=document.getElementById('loop');
 
 let songs = [
     {songName: "Celestial Dreams", filePath: "songs/1.mp3", coverPath: "covers/1.jpeg"},
@@ -35,6 +37,7 @@ masterPlay.addEventListener('click', () => {
         audioElement.play();
         masterPlay.classList.remove("fa-circle-play");
         masterPlay.classList.add("fa-circle-pause");
+        masterSongName.innerText = songs[songIndex].songName;
         gif.style.opacity=1;
     } 
     else
@@ -43,6 +46,7 @@ masterPlay.addEventListener('click', () => {
         audioElement.pause();
         masterPlay.classList.remove("fa-circle-pause");
         masterPlay.classList.add("fa-circle-play");
+        masterSongName.innerText = songs[songIndex].songName;
         gif.style.opacity=0;
     }
 });
@@ -52,7 +56,7 @@ audioElement.addEventListener('timeupdate', () => {
     // Update Seekbar (to be implemented)
     progress=(audioElement.currentTime/audioElement.duration)*100;
     myProgressBar.value=progress;
-    console.log(progress);
+    // console.log(progress);
     // console.log(audioElement.currentTime);
 
 });
@@ -98,7 +102,7 @@ document.getElementById('previous').addEventListener('click', ()=>{
     audioElement.currentTime = 0;
     audioElement.play();
     gif.style.opacity = 1;
-    masterPlay.classList.remove('fa-regular fa-2x fa-circle-play');
+    masterPlay.classList.remove('fa-circle-play');
     masterPlay.classList.add('fa-pause-circle');
 })
 
@@ -115,28 +119,34 @@ document.getElementById('next').addEventListener('click', ()=>{
     audioElement.currentTime = 0;
     audioElement.play();
     gif.style.opacity = 1;
-    masterPlay.classList.remove('fa-regular fa-2x fa-circle-play');
+    masterPlay.classList.remove('fa-circle-play');
     masterPlay.classList.add('fa-pause-circle');
 
 })
 
 //handles looping 
-audioElement.addEventListener('ended', () => 
-    {
-    if(songIndex==7)
-    {
-        songIndex=0;
-    }
-    else 
-    {
-        songIndex++;
-    }
-    audioElement.src = `songs/${songIndex+1}.mp3`;
-    masterSongName.innerText = songs[songIndex].songName;
-    audioElement.currentTime = 0;
-    audioElement.play();
-    gif.style.opacity = 1;
-    masterPlay.classList.remove('fa-regular fa-2x fa-circle-play');
-    masterPlay.classList.add('fa-pause-circle');
+loopList.addEventListener("click", () => {
+    loopPlaylist ^= 1; 
+    console.log(loopPlaylist);
 
-    });
+    if (loopPlaylist == 1) {
+        loopList.classList.remove("fa-rotate-right");
+        loopList.classList.add("fa-repeat");
+    } else {
+        loopList.classList.remove("fa-repeat");
+        loopList.classList.add("fa-rotate-right");
+    }
+});
+
+audioElement.addEventListener("ended", () => {
+    if (loopPlaylist) {
+        songIndex = songIndex === 7 ? 0 : songIndex + 1;
+        audioElement.src = `songs/${songIndex + 1}.mp3`;
+        masterSongName.innerText = songs[songIndex].songName;
+        audioElement.currentTime = 0;
+        audioElement.play();
+        gif.style.opacity = 1;
+        masterPlay.classList.remove("fa-circle-play");
+        masterPlay.classList.add("fa-pause-circle");
+    }
+});
